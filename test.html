@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>For test</title>
+    <style>
+      /* Reset default styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background-color: #0b1235;
+        color: #ffffff;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 25px 10%;
+        background: transparent;
+      }
+
+      .logo {
+        font-size: 26px;
+        font-weight: 700;
+        color: #ffffff;
+      }
+
+      nav {
+        display: flex;
+        gap: 40px;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #c4c8d6;
+        font-size: 18px;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      nav a:hover,
+      nav a.active {
+        color: #6c7dff;
+      }
+
+      nav a.active::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: #6c7dff;
+        width: 20px;
+        margin: 5px auto 0;
+        border-radius: 5px;
+      }
+
+      .hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 300px;
+        padding: 80px 10%;
+        flex: 1;
+      }
+
+      .hero-text {
+        max-width: 600px;
+      }
+
+      .hero-text h1 {
+        font-size: 100px;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .hero-text h1 span {
+        color: #6c7dff;
+      }
+
+      .hero-text h3 {
+        margin-top: 20px;
+        font-size: 26px;
+        font-weight: 400;
+        color: #c4c8d6;
+      }
+
+      .btn {
+        display: inline-block;
+        margin-top: 35px;
+        padding: 12px 28px;
+        background-color: #3645e2;
+        color: #fff;
+        font-size: 16px;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #6c7dff;
+      }
+
+      .hero-img img {
+        width: 300px; /* or keep 400px if you want bigger */
+        height: 300px; /* Add fixed height */
+        object-fit: cover;
+        border-radius: 50%; /* Make it a circle */
+        background: #ffffff;
+        padding: 4px;
+      }
+
+      /* Responsive */
+      @media (max-width: 992px) {
+        .hero {
+          flex-direction: column;
+          text-align: center;
+        }
+        .hero-img {
+          margin-top: 40px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="logo">Tailor</div>
+      <nav>
+        <a href="#" class="active">Home</a>
+        <a href="#">Work</a>
+        <a href="#">My Info</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-text">
+        <h1>SOEUN<br /><span>Sereyvath</span></h1>
+        <h3>Web Developer</h3>
+      </div>
+
+      <div class="hero-img">
+        <img src="cat.png" alt="Profile Image" />
+      </div>
+    </section>
+
+    <script>
+      // JS for active link
+      const navLinks = document.querySelectorAll("nav a");
+
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        });
+      });
+    </script>
+  </body>
+</html>
