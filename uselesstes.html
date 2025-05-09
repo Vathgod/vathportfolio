@@ -3,17 +3,51 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>uselewss</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
     <script
       src="https://kit.fontawesome.com/353aaa4da4.js"
       crossorigin="anonymous"
     ></script>
   </head>
   <body>
-    <h1 class="text-4xl font-bold font-sans">Sans-serif Bold Heading</h1>
-    <p class="text-base font-light font-serif">Serif Light Paragraph</p>
-    <p class="text-sm font-medium font-mono">Monospace Medium Text</p>
+    <header
+      id="#show"
+      class="text-white flex justify-between items-center p-6 bg-[#ffffff0] bg-blue-950 sticky top-0 z-30 sm:maxWidth sm:flex sm:justify-between sm:items-center sm:sticky sm:top-0 sm:z-50"
+    >
+      <div class="logo font-bold text-lg sm:text-3xl">VDev</div>
+      <nav class="flex font-semibold text-[20px] gap-5 sm:gap-10">
+        <a href="#home" class="active text-sm sm:text-lg">Home</a>
+        <a href="#recentWork" class="active text-sm sm:text-lg">Work</a>
+        <a href="#myInfo" class="active text-sm sm:text-lg">My Info</a>
+        <a href="#contactInfo" class="active text-sm sm:text-lg">Contact</a>
+        <a onclick="showNav()" class="active text-sm sm:text-lg block sm:hidden"
+          ><i class="fa-solid fa-bars"></i
+        ></a>
+      </nav>
+    </header>
+
+    <nav
+      id="#hide"
+      class="fixed top-0 right-0 w-[200px] h-[100vh] flex flex-col justify-start items-start font-semibold mb-20 text-[20px] gap-5 sm:gap-10 sm:hidden p-5 bg-red-500 z-50"
+    >
+      <div onclick="hidNav()" class="text-sm sm:text-lg flex justify-end ml-36">
+        <i class="fa-solid fa-x"></i>
+      </div>
+      <a href="#home" class="active text-sm sm:text-lg">Home</a>
+      <a href="#recentWork" class="active text-sm sm:text-lg">Work</a>
+      <a href="#myInfo" class="active text-sm sm:text-lg">My Info</a>
+      <a href="#contactInfo" class="active text-sm sm:text-lg">Contact</a>
+    </nav>
+    <script>
+      function hidNav() {
+        const nav = document.getElementById("#hide");
+        nav.style.display = "none";
+      }
+      function showNav() {
+        const nav = document.getElementById("#hide");
+        nav.style.display = "flex";
+      }
+    </script>
   </body>
 </html>

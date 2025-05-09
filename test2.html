@@ -27,22 +27,71 @@
         max-width: 430px;
         margin: 0 auto;
       }
+      nav a:hover,
+      nav a.active {
+        color: #6c7dff;
+      }
+
+      nav a.active::after {
+        content: "";
+        display: block;
+        height: 2px;
+        background: #6c7dff;
+        width: 20px;
+        margin: 5px auto 0;
+        border-radius: 5px;
+      }
     </style>
   </head>
   <body>
     <div class="bigCOntainer bg-blue-950">
       <header
-        class="text-white flex justify-between items-center p-6 bg-[#ffffff0] bg-blue-950 sticky top-0 z-50 sm:maxWidth sm:flex sm:justify-between sm:items-center sm:sticky sm:top-0 sm:z-50"
+        id="#show"
+        class="text-white flex justify-between opacity-95 items-center p-6 bg-[#ffffff0] bg-blue-950 sticky top-0 z-30 sm:maxWidth sm:flex sm:justify-between sm:items-center sm:sticky sm:top-0 sm:z-50"
       >
         <div class="logo font-bold text-lg sm:text-3xl">VDev</div>
         <nav class="flex font-semibold text-[20px] gap-5 sm:gap-10">
-          <a href="#home" class="active text-sm sm:text-lg">Home</a>
-          <a href="#recentWork" class="active text-sm sm:text-lg">Work</a>
-          <a href="#myInfo" class="active text-sm sm:text-lg">My Info</a>
-
-          <a href="#contactInfo" class="active text-sm sm:text-lg">Contact</a>
+          <a href="#home" class="active hidden sm:block text-sm sm:text-lg"
+            >Home</a
+          >
+          <a
+            href="#recentWork"
+            class="active hidden sm:block text-sm sm:text-lg"
+            >Work</a
+          >
+          <a href="#myInfo" class="active hidden sm:block text-sm sm:text-lg"
+            >My Info</a
+          >
+          <a
+            href="#contactInfo"
+            class="active hidden sm:block text-sm sm:text-lg"
+            >Contact</a
+          >
+          <div
+            onclick="showNav()"
+            class="active text-sm sm:text-lg block sm:hidden"
+          >
+            <i class="fa-solid fa-bars text-lg"></i>
+          </div>
         </nav>
       </header>
+
+      <nav
+        id="#hide"
+        class="fixed top-0 right-0 w-[200px] h-[100vh] text-white flex flex-col justify-start items-start font-semibold bg-opacity-90 mb-20 text-[20px] gap-5 sm:gap-10 sm:hidden p-5 bg-[#012A4A] z-50"
+      >
+        <div
+          onclick="hidNav()"
+          class="text-sm sm:text-lg flex justify-end ml-36 mt-5"
+        >
+          <i class="fa-solid fa-x transition-all hover:spin-slow"></i>
+        </div>
+        <a href="#home" class="active text-sm sm:text-lg">Home</a>
+        <a href="#recentWork" class="active text-sm sm:text-lg">Work</a>
+        <a href="#myInfo" class="active text-sm sm:text-lg">My Info</a>
+        <a href="#contactInfo" class="active text-sm sm:text-lg">Contact</a>
+      </nav>
+
       <section
         id="home"
         class="ani opacity-0 blur-md transition-all duration-[1.5s] maxWidth flex items-center bg-blue-950 justify-center sm:gap-20 sm:mb-10 px-6 md:px-20 py-20 flex-wrap text-center md:text-left"

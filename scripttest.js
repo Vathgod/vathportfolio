@@ -45,3 +45,22 @@ const observer = new IntersectionObserver(
 targets.forEach((target) => {
   observer.observe(target);
 });
+
+const navLinks = document.querySelectorAll("nav a");
+
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.forEach((l) => l.classList.remove("active"));
+    link.classList.add("active");
+  });
+});
+
+// hide & show
+function hidNav() {
+  const nav = document.getElementById("#hide");
+  nav.style.display = "none";
+}
+function showNav() {
+  const nav = document.getElementById("#hide");
+  nav.style.display = "flex";
+}
