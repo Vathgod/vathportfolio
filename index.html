@@ -41,6 +41,30 @@
         margin: 5px auto 0;
         border-radius: 5px;
       }
+
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .spin-slow {
+        animation: spin-slow 4s linear infinite;
+      }
+      @keyframes rotate-right {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+      .rotate-flip {
+        animation: rotate-right 6s ease-in-out infinite;
+        transform-style: preserve-3d;
+      }
     </style>
   </head>
   <body>
@@ -49,7 +73,7 @@
         id="#show"
         class="text-white flex justify-between opacity-95 items-center p-6 bg-[#ffffff0] bg-blue-950 sticky top-0 z-30 sm:maxWidth sm:flex sm:justify-around sm:items-center sm:sticky sm:top-0 sm:z-50"
       >
-        <div class="logo font-bold text-lg sm:text-3xl">VDev</div>
+        <div class="logo font-bold text-lg sm:text-3xl">Vath</div>
         <nav class="flex font-semibold text-[20px] gap-5 sm:gap-10">
           <a href="#home" class="active hidden sm:block text-sm sm:text-lg"
             >Home</a
@@ -213,9 +237,9 @@
               </a>
             </div>
             <p class="sm:text-sm text-[10px] text-gray-300">
-              Developed using HTML, CSS, and JavaScript, this news website
-              fetches articles from the World News API and allows users to
-              search for specific news content
+              Developed using HTML,Tailwind CSS, and JavaScript, this news
+              website fetches articles from the API and allows users to search
+              for specific news content
             </p>
             <a
               href="https://vathgod.github.io/newss/"
@@ -427,7 +451,7 @@
 
             <div class="des w-[80%]">
               <h2 class="font-semibold text-[10px] sm:text-lg">
-                Academic year 2023-2025
+                Year 2023-2025
               </h2>
               <p class="text-[8px] sm:text-sm text-white">
                 I have experience creating responsive and user-friendly websites
@@ -448,7 +472,7 @@
 
             <div class="des w-[80%]">
               <h2 class="font-semibold text-[10px] sm:text-lg">
-                Academic year 2025-currenly
+                Year 2025-currenly
               </h2>
               <p class="text-[8px] sm:text-sm text-white">
                 I have experience using Tailwind CSS to efficiently design
@@ -470,12 +494,13 @@
 
             <div class="des w-[80%]">
               <h2 class="font-semibold text-[10px] sm:text-lg">
-                Academic year 2025-currenly
+                Year 2025-currenly
               </h2>
               <p class="text-[8px] sm:text-sm text-white">
-                Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Suscipit earum nihil delectus
-                quod ut sunt esse odit aut aperiam quas.
+                Mock Exam System (MES) is a web application designed to help
+                students review and prepare for entrance or academic
+                examinations, such as engineering degrees at ITC or health
+                sector degrees at universities like UHS, UP, and IU.
               </p>
             </div>
           </div>
@@ -487,7 +512,7 @@
           <div
             class="skillTitle sm:text-xl text-[12px] font-light font-serif sm:mr-[50%] mr-[70%]"
           >
-            <span class="underline underline-offset-4">Sk</span>ill
+            <span class="underline underline-offset-4">Technolo</span>gies
           </div>
           <div
             class="skillDes grid sm:grid-cols-6 sm:gap-16 sm:mr-[10%] grid-cols-5 gap-5 mr-[23%]"
@@ -495,7 +520,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="html2.png" alt="cat" />
+              <img class="rotate-flip" src="html2.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">HTML</p>
               </div>
@@ -503,7 +528,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="css.png" alt="cat" />
+              <img class="rotate-flip" src="css.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">CSS</p>
               </div>
@@ -511,7 +536,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="javaScript.png" alt="cat" />
+              <img class="rotate-flip" src="javaScript.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">JavaScript</p>
               </div>
@@ -519,7 +544,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="java.png" alt="cat" />
+              <img class="rotate-flip" src="java.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">Java</p>
               </div>
@@ -527,7 +552,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="nextjs.png" alt="cat" />
+              <img class="rotate-flip" src="nextjs.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">NextJs</p>
               </div>
@@ -535,7 +560,15 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="c.png" alt="cat" />
+              <img class="spin-slow" src="react.png" alt="cat" />
+              <div class="smallCardDes">
+                <p class="text-center sm:text-sm text-[8px]">ReactJS</p>
+              </div>
+            </div>
+            <div
+              class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
+            >
+              <img class="rotate-flip" src="c.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">C</p>
               </div>
@@ -543,7 +576,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="c++.png" alt="cat" />
+              <img class="rotate-flip" src="c++.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">C++</p>
               </div>
@@ -551,7 +584,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="figma.png" alt="cat" />
+              <img class="rotate-flip" src="figma.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">Figma</p>
               </div>
@@ -559,7 +592,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1 mb-10"
             >
-              <img src="github.png" alt="cat" />
+              <img class="rotate-flip" src="github.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">Github</p>
               </div>

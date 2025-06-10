@@ -3,51 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>uselewss</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      src="https://kit.fontawesome.com/353aaa4da4.js"
-      crossorigin="anonymous"
-    ></script>
+    <title>test</title>
+    <style>
+      .flip-container {
+        perspective: 1000px;
+        width: 100%;
+        height: 100%;
+      }
+      .flip-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        transition: transform 0.6s;
+      }
+      .flip-container:hover .flip-inner {
+        transform: rotateY(180deg);
+      }
+      .flip-front,
+      .flip-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+      }
+      .backface-hidden {
+        backface-visibility: hidden;
+      }
+      .flip-back {
+        transform: rotateY(180deg);
+      }
+    </style>
   </head>
   <body>
-    <header
-      id="#show"
-      class="text-white flex justify-between items-center p-6 bg-[#ffffff0] bg-blue-950 sticky top-0 z-30 sm:maxWidth sm:flex sm:justify-between sm:items-center sm:sticky sm:top-0 sm:z-50"
+    <div
+      class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
     >
-      <div class="logo font-bold text-lg sm:text-3xl">VDev</div>
-      <nav class="flex font-semibold text-[20px] gap-5 sm:gap-10">
-        <a href="#home" class="active text-sm sm:text-lg">Home</a>
-        <a href="#recentWork" class="active text-sm sm:text-lg">Work</a>
-        <a href="#myInfo" class="active text-sm sm:text-lg">My Info</a>
-        <a href="#contactInfo" class="active text-sm sm:text-lg">Contact</a>
-        <a onclick="showNav()" class="active text-sm sm:text-lg block sm:hidden"
-          ><i class="fa-solid fa-bars"></i
-        ></a>
-      </nav>
-    </header>
+      <div class="flip-container w-full h-full">
+        <div class="flip-inner">
+          <!-- Front Image -->
+          <div class="flip-front backface-hidden">
+            <img src="nextjs.png" alt="Ract Front" class="w-full h-auto" />
+          </div>
 
-    <nav
-      id="#hide"
-      class="fixed top-0 right-0 w-[200px] h-[100vh] flex flex-col justify-start items-start font-semibold mb-20 text-[20px] gap-5 sm:gap-10 sm:hidden p-5 bg-red-500 z-50"
-    >
-      <div onclick="hidNav()" class="text-sm sm:text-lg flex justify-end ml-36">
-        <i class="fa-solid fa-x"></i>
+          <!-- Back Image or Info -->
+          <div class="flip-back backface-hidden">
+            <img src="react.png" alt="React Back" class="w-full h-auto" />
+            <!-- or add text/info instead of an image -->
+            <!-- <p class="text-xs text-center mt-2">React Info</p> -->
+          </div>
+        </div>
       </div>
-      <a href="#home" class="active text-sm sm:text-lg">Home</a>
-      <a href="#recentWork" class="active text-sm sm:text-lg">Work</a>
-      <a href="#myInfo" class="active text-sm sm:text-lg">My Info</a>
-      <a href="#contactInfo" class="active text-sm sm:text-lg">Contact</a>
-    </nav>
-    <script>
-      function hidNav() {
-        const nav = document.getElementById("#hide");
-        nav.style.display = "none";
-      }
-      function showNav() {
-        const nav = document.getElementById("#hide");
-        nav.style.display = "flex";
-      }
-    </script>
+
+      <div class="smallCardDes">
+        <p class="text-center sm:text-sm text-[8px]">ReactJS</p>
+      </div>
+    </div>
   </body>
 </html>
