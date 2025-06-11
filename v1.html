@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>fortest2</title>
+    <title>SOEUN SEREYVATH</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <script
@@ -27,7 +27,7 @@
         max-width: 430px;
         margin: 0 auto;
       }
-      nav a:hover,
+      /* nav a:hover,
       nav a.active {
         color: #6c7dff;
       }
@@ -40,6 +40,58 @@
         width: 20px;
         margin: 5px auto 0;
         border-radius: 5px;
+      } */
+      /* new  */
+      nav a {
+        transition: color 0.3s ease-in-out;
+        position: relative;
+        padding-bottom: 8px; /* Add padding to make space for the underline */
+      }
+
+      nav a:hover,
+      nav a.active {
+        color: #6c7dff;
+      }
+
+      /* Base style for the underline */
+      nav a::after {
+        content: "";
+        display: block;
+        height: 2px;
+        width: 0; /* Start with no width */
+        background: #6c7dff;
+        margin: 5px auto 0;
+        border-radius: 5px;
+        transition: width 0.3s ease-in-out; /* Animate the width */
+      }
+
+      /* Style for the active link's underline */
+      nav a.active::after {
+        width: 25px; /* Set width for the active link */
+      }
+
+      @keyframes spin-slow {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .spin-slow {
+        animation: spin-slow 4s linear infinite;
+      }
+      @keyframes rotate-right {
+        0% {
+          transform: rotateY(0deg);
+        }
+        100% {
+          transform: rotateY(360deg);
+        }
+      }
+      .rotate-flip {
+        animation: rotate-right 6s ease-in-out infinite;
+        transform-style: preserve-3d;
       }
     </style>
   </head>
@@ -49,31 +101,18 @@
         id="#show"
         class="text-white flex justify-between opacity-95 items-center p-6 bg-[#ffffff0] bg-blue-950 sticky top-0 z-30 sm:maxWidth sm:flex sm:justify-around sm:items-center sm:sticky sm:top-0 sm:z-50"
       >
-        <div class="logo font-bold text-lg sm:text-3xl">VDev</div>
-        <nav class="flex font-semibold text-[20px] gap-5 sm:gap-10">
-          <a href="#home" class="active hidden sm:block text-sm sm:text-lg"
-            >Home</a
-          >
-          <a
-            href="#recentWork"
-            class="active hidden sm:block text-sm sm:text-lg"
-            >Work</a
-          >
-          <a href="#myInfo" class="active hidden sm:block text-sm sm:text-lg"
-            >My Info</a
-          >
-          <a
-            href="#contactInfo"
-            class="active hidden sm:block text-sm sm:text-lg"
-            >Contact</a
-          >
-          <div
-            onclick="showNav()"
-            class="active text-sm sm:text-lg block sm:hidden"
-          >
-            <i class="fa-solid fa-bars text-lg"></i>
-          </div>
+        <div class="logo font-bold text-lg sm:text-3xl">Vath</div>
+        <nav
+          class="hidden sm:flex font-semibold text-[20px] gap-5 sm:gap-10 main-nav"
+        >
+          <a href="#home" class="text-sm sm:text-lg">Home</a>
+          <a href="#recentWork" class="text-sm sm:text-lg">Project</a>
+          <a href="#myInfo" class="text-sm sm:text-lg">My Info</a>
+          <a href="#contactInfo" class="text-sm sm:text-lg">Contact</a>
         </nav>
+        <div onclick="showNav()" class="text-sm sm:text-lg block sm:hidden">
+          <i class="fa-solid fa-bars text-lg"></i>
+        </div>
       </header>
 
       <nav
@@ -86,10 +125,16 @@
         >
           <i class="fa-solid fa-x transition-all hover:spin-slow"></i>
         </div>
-        <a href="#home" class="active text-sm sm:text-lg">Home</a>
-        <a href="#recentWork" class="active text-sm sm:text-lg">Work</a>
-        <a href="#myInfo" class="active text-sm sm:text-lg">My Info</a>
-        <a href="#contactInfo" class="active text-sm sm:text-lg">Contact</a>
+        <a href="#home" class="text-sm sm:text-lg" onclick="hidNav()">Home</a>
+        <a href="#recentWork" class="text-sm sm:text-lg" onclick="hidNav()"
+          >Project</a
+        >
+        <a href="#myInfo" class="text-sm sm:text-lg" onclick="hidNav()"
+          >My Info</a
+        >
+        <a href="#contactInfo" class="text-sm sm:text-lg" onclick="hidNav()"
+          >Contact</a
+        >
       </nav>
 
       <section
@@ -124,22 +169,20 @@
         class="sm:maxWidth sm:display sm:flex sm:flex-col sm:items-center sm:justify-center sm:gap-32 sm:mb-20 bg-[#012A4A] flex flex-col items-center gap-10 justify-center"
       >
         <div
-          class="topSec2 text-white text-xl mt-5 underline underline-offset-4 sm:mt-28 sm:text-5xl font-light font-serif"
+          class="topSec2 text-white text-xl mt-5 underline underline-offset-4 sm:mt-28 sm:text-4xl font-light font-serif"
         >
-          Project Done
+          Things I've Built
         </div>
         <div
           class="butSec2 flex justify-center items-center flex-col sm:grid sm:grid-cols-3 sm:gap-7 gap-3 p-5"
         >
           <div
-            class="sm:w-[450px] sm:h-[400px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[300px]"
+            class="sm:w-[450px] sm:h-[430px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[330px]"
           >
             <div class="flex justify-between items-center">
-              <h2 class="sm:text-xl text-sm font-semibold">
-                Design Of Products
-              </h2>
+              <h2 class="sm:text-xl text-sm font-semibold">Restaurant Order</h2>
               <a
-                href="https://example.com"
+                href="https://hang-git-main-sereyvaths-projects-11691424.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -149,30 +192,95 @@
               </a>
             </div>
             <p class="sm:text-sm text-[10px] text-gray-300">
-              Short description of the project that was carried out in this
-              portfolio.
+              Built with Next.js and Tailwind CSS, this restaurant website
+              features dynamic card components that are imported and routed from
+              separate files for better code organization and reusability
             </p>
             <a
-              href="https://example.com"
+              href="https://hang-git-main-sereyvaths-projects-11691424.vercel.app"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src="cat.png"
+                src="food.png"
+                alt="Design tools"
+                class="w-full h-[170px] sm:h-[230px] mt-10 object-cover rounded-lg"
+              />
+            </a>
+          </div>
+
+          <div
+            class="sm:w-[450px] sm:h-[430px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[330px]"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="sm:text-xl text-sm font-semibold">Shopping Center</h2>
+              <a
+                href="https://vathgod.github.io/V1Shop/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="text-blue-400 sm:text-2xl text-lg font-bold"
+                  >&rarr;</span
+                >
+              </a>
+            </div>
+            <p class="sm:text-sm text-[10px] text-gray-300">
+              Built using HTML, CSS, and JavaScript, the website includes static
+              card components on each page and allows users to search for
+              products on every page
+            </p>
+            <a
+              href="https://vathgod.github.io/V1Shop/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="shop.png"
+                alt="Design tools"
+                class="w-full h-[170px] sm:h-[230px] mt-10 object-cover rounded-lg"
+              />
+            </a>
+          </div>
+
+          <div
+            class="sm:w-[450px] sm:h-[430px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[330px]"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="sm:text-xl text-sm font-semibold">Khmer NEWS</h2>
+              <a
+                href="https://vathgod.github.io/Vathnews/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="text-blue-400 sm:text-2xl text-lg font-bold"
+                  >&rarr;</span
+                >
+              </a>
+            </div>
+            <p class="sm:text-sm text-[10px] text-gray-300">
+              Developed using HTML,Tailwind CSS, and JavaScript, this news
+              website fetches articles from the API and allows users to search
+              for specific news content
+            </p>
+            <a
+              href="https://vathgod.github.io/newss/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="news2.png"
                 alt="Design tools"
                 class="w-full h-[170px] sm:h-[230px] mt-10 object-cover rounded-lg"
               />
             </a>
           </div>
           <div
-            class="sm:w-[450px] sm:h-[400px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[300px]"
+            class="sm:w-[450px] sm:h-[430px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[330px]"
           >
             <div class="flex justify-between items-center">
-              <h2 class="sm:text-xl text-sm font-semibold">
-                Design Of Products
-              </h2>
+              <h2 class="sm:text-xl text-sm font-semibold">Khmer Book Web</h2>
               <a
-                href="https://example.com"
+                href="https://vathgod.github.io/BookWeb/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -182,30 +290,67 @@
               </a>
             </div>
             <p class="sm:text-sm text-[10px] text-gray-300">
-              Short description of the project that was carried out in this
-              portfolio.
+              This website is built using HTML, Tailwind CSS, and JavaScript.
+              Book data is fetched from Google Sheets, which acts as the
+              database. The login system allows users to sign up and log in
+              either as an admin or as a guest before accessing the inner pages
+              of the website. The book listings are dynamic and update
+              automatically based on the data set in the Google Sheet
             </p>
             <a
-              href="https://example.com"
+              href="https://vathgod.github.io/BookWeb/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src="cat.png"
+                src="book.png"
+                alt="Design tools"
+                class="w-full h-[170px] sm:h-[230px] mt-0 object-cover rounded-lg"
+              />
+            </a>
+          </div>
+          <div
+            class="sm:w-[450px] sm:h-[430px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[330px]"
+          >
+            <div class="flex justify-between items-center">
+              <h2 class="sm:text-xl text-sm font-semibold">Flower Shop</h2>
+              <a
+                href="https://vathgod.github.io/Flowershop/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span class="text-blue-400 sm:text-2xl text-lg font-bold"
+                  >&rarr;</span
+                >
+              </a>
+            </div>
+            <p class="sm:text-sm text-[10px] text-gray-300">
+              Built with HTML, Tailwind CSS, and JavaScript, this flower website
+              features static product cards with different flower types on each
+              page. Users can add items to their cart and contact the owner by
+              sending a message through the contact page.
+            </p>
+            <a
+              href="https://vathgod.github.io/Flowershop/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="flower.png"
                 alt="Design tools"
                 class="w-full h-[170px] sm:h-[230px] mt-10 object-cover rounded-lg"
               />
             </a>
           </div>
           <div
-            class="sm:w-[450px] sm:h-[400px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[300px]"
+            class="sm:w-[450px] sm:h-[430px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[330px]"
           >
             <div class="flex justify-between items-center">
               <h2 class="sm:text-xl text-sm font-semibold">
-                Design Of Products
+                Student Enrollment
               </h2>
               <a
-                href="https://example.com"
+                href="https://vathgod.github.io/Flowershop/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -215,115 +360,17 @@
               </a>
             </div>
             <p class="sm:text-sm text-[10px] text-gray-300">
-              Short description of the project that was carried out in this
-              portfolio.
+              Developed in C++ using linked lists, this system provides user
+              authentication through login and sign-up features. It allows users
+              to dynamically manage all parts of the system.
             </p>
             <a
-              href="https://example.com"
+              href="https://vathgod.github.io/Flowershop/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
-                src="cat.png"
-                alt="Design tools"
-                class="w-full h-[170px] sm:h-[230px] mt-10 object-cover rounded-lg"
-              />
-            </a>
-          </div>
-          <div
-            class="sm:w-[450px] sm:h-[400px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[300px]"
-          >
-            <div class="flex justify-between items-center">
-              <h2 class="sm:text-xl text-sm font-semibold">
-                Design Of Products
-              </h2>
-              <a
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="text-blue-400 sm:text-2xl text-lg font-bold"
-                  >&rarr;</span
-                >
-              </a>
-            </div>
-            <p class="sm:text-sm text-[10px] text-gray-300">
-              Short description of the project that was carried out in this
-              portfolio.
-            </p>
-            <a
-              href="https://example.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="cat.png"
-                alt="Design tools"
-                class="w-full h-[170px] sm:h-[230px] mt-10 object-cover rounded-lg"
-              />
-            </a>
-          </div>
-          <div
-            class="sm:w-[450px] sm:h-[400px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[300px]"
-          >
-            <div class="flex justify-between items-center">
-              <h2 class="sm:text-xl text-sm font-semibold">
-                Design Of Products
-              </h2>
-              <a
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="text-blue-400 sm:text-2xl text-lg font-bold"
-                  >&rarr;</span
-                >
-              </a>
-            </div>
-            <p class="sm:text-sm text-[10px] text-gray-300">
-              Short description of the project that was carried out in this
-              portfolio.
-            </p>
-            <a
-              href="https://example.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="cat.png"
-                alt="Design tools"
-                class="w-full h-[170px] sm:h-[230px] mt-10 object-cover rounded-lg"
-              />
-            </a>
-          </div>
-          <div
-            class="sm:w-[450px] sm:h-[400px] p-5 ani bg-[#0F1C3F] border-t-4 border-l-4 border-[#0F1C3F] text-white rounded-lg shadow-lg sm:p-5 sm:space-y-4 transform transition duration-300 hover:scale-[1.02] hover:border-t-4 hover:border-l-4 hover:border-[#ffffff90] w-[350px] h-[300px]"
-          >
-            <div class="flex justify-between items-center">
-              <h2 class="sm:text-xl text-sm font-semibold">
-                Design Of Products
-              </h2>
-              <a
-                href="https://example.com"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span class="text-blue-400 sm:text-2xl text-lg font-bold"
-                  >&rarr;</span
-                >
-              </a>
-            </div>
-            <p class="sm:text-sm text-[10px] text-gray-300">
-              Short description of the project that was carried out in this
-              portfolio.
-            </p>
-            <a
-              href="https://example.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img
-                src="cat.png"
+                src="sys.png"
                 alt="Design tools"
                 class="w-full h-[170px] sm:h-[230px] mt-10 object-cover rounded-lg"
               />
@@ -391,54 +438,90 @@
           >
             <span class="underline underline-offset-4">Exper</span>ince
           </div>
+
           <div
-            class="bg-[#ffffff10] rounded-md p-3 flex flex-col sm:flex-row gap-2 max-w-[70%] sm:gap-96 sm:max-w-[50%]"
+            class="bg-[#ffffff10] hover:bg-[#ffffff20] transition rounded-md p-3 flex flex-col sm:flex-row gap-2 max-w-[70%] sm:gap-96 sm:max-w-[50%]"
           >
-            <div class="skill font-semibold text-[12px] sm:text-xl">
-              Descord
+            <div
+              class="skill font-semibold text-[12px] sm:text-xl whitespace-nowrap w-[10%]"
+            >
+              Data Structure And Algorithm
             </div>
-            <div class="des">
+
+            <div class="des w-[80%]">
               <h2 class="font-semibold text-[10px] sm:text-lg">
-                Academic year
+                Year 2023-2024
               </h2>
               <p class="text-[8px] sm:text-sm text-white">
-                Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Suscipit earum nihil delectus
-                quod ut sunt esse odit aut aperiam quas.
+                Build a student enrollment management system in C++ that
+                implements CRUD operations on student records stored in a linked
+                list. The system should load data from and save data to a CSV
+                file for persistent storage
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="bg-[#ffffff10] hover:bg-[#ffffff20] transition rounded-md p-3 flex flex-col sm:flex-row gap-2 max-w-[70%] sm:gap-96 sm:max-w-[50%]"
+          >
+            <div
+              class="skill font-semibold text-[12px] sm:text-xl whitespace-nowrap w-[10%]"
+            >
+              Basic Web Development
+            </div>
+
+            <div class="des w-[80%]">
+              <h2 class="font-semibold text-[10px] sm:text-lg">
+                Year 2023-2025
+              </h2>
+              <p class="text-[8px] sm:text-sm text-white">
+                I have experience creating responsive and user-friendly websites
+                using HTML for structure, CSS (including Tailwind) for styling
+                and layout, and JavaScript for interactivity, DOM manipulation,
+                and dynamic behavior in real-world projects.
               </p>
             </div>
           </div>
           <div
-            class="bg-[#ffffff10] rounded-md p-3 flex flex-col sm:flex-row gap-2 max-w-[70%] sm:gap-96 sm:max-w-[50%]"
+            class="bg-[#ffffff10] hover:bg-[#ffffff20] transition rounded-md p-3 flex flex-col sm:flex-row gap-2 max-w-[70%] sm:gap-96 sm:max-w-[50%]"
           >
-            <div class="skill font-semibold text-[12px] sm:text-xl">
-              Descord
+            <div
+              class="skill font-semibold text-[12px] sm:text-xl whitespace-nowrap w-[10%]"
+            >
+              Framework Web Development
             </div>
-            <div class="des">
+
+            <div class="des w-[80%]">
               <h2 class="font-semibold text-[10px] sm:text-lg">
-                Academic year
+                Year 2025-currenly
               </h2>
               <p class="text-[8px] sm:text-sm text-white">
-                Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Suscipit earum nihil delectus
-                quod ut sunt esse odit aut aperiam quas.
+                I have experience using Tailwind CSS to efficiently design
+                clean, responsive interfaces, and Next.js to build modern,
+                component based web applications with routing and simple API
+                integration, enhancing performance and structure in my web
+                development projects.
               </p>
             </div>
           </div>
           <div
-            class="bg-[#ffffff10] rounded-md p-3 flex flex-col sm:flex-row gap-2 max-w-[70%] sm:gap-96 sm:max-w-[50%]"
+            class="bg-[#ffffff10] hover:bg-[#ffffff20] transition rounded-md p-3 flex flex-col sm:flex-row gap-2 max-w-[70%] sm:gap-96 sm:max-w-[50%]"
           >
-            <div class="skill font-semibold text-[12px] sm:text-xl">
-              Descord
+            <div
+              class="skill font-semibold text-[12px] sm:text-xl whitespace-nowrap w-[10%]"
+            >
+              Developing MES
             </div>
-            <div class="des">
+
+            <div class="des w-[80%]">
               <h2 class="font-semibold text-[10px] sm:text-lg">
-                Academic year
+                Year 2025-currenly
               </h2>
               <p class="text-[8px] sm:text-sm text-white">
-                Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet
-                consectetur, adipisicing elit. Suscipit earum nihil delectus
-                quod ut sunt esse odit aut aperiam quas.
+                Mock Exam System (MES) is a web application designed to help
+                students review and prepare for entrance or academic
+                examinations, such as engineering degrees at ITC or health
+                sector degrees at universities like UHS, UP, and IU.
               </p>
             </div>
           </div>
@@ -450,7 +533,7 @@
           <div
             class="skillTitle sm:text-xl text-[12px] font-light font-serif sm:mr-[50%] mr-[70%]"
           >
-            <span class="underline underline-offset-4">Sk</span>ill
+            <span class="underline underline-offset-4">Technolo</span>gies
           </div>
           <div
             class="skillDes grid sm:grid-cols-6 sm:gap-16 sm:mr-[10%] grid-cols-5 gap-5 mr-[23%]"
@@ -458,7 +541,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="html2.png" alt="cat" />
+              <img class="rotate-flip" src="html2.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">HTML</p>
               </div>
@@ -466,7 +549,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="css.png" alt="cat" />
+              <img class="rotate-flip" src="css.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">CSS</p>
               </div>
@@ -474,7 +557,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="javaScript.png" alt="cat" />
+              <img class="rotate-flip" src="javaScript.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">JavaScript</p>
               </div>
@@ -482,7 +565,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="java.png" alt="cat" />
+              <img class="rotate-flip" src="java.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">Java</p>
               </div>
@@ -490,7 +573,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="nextjs.png" alt="cat" />
+              <img class="rotate-flip" src="nextjs.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">NextJs</p>
               </div>
@@ -498,7 +581,15 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="c.png" alt="cat" />
+              <img class="spin-slow" src="react.png" alt="cat" />
+              <div class="smallCardDes">
+                <p class="text-center sm:text-sm text-[8px]">ReactJS</p>
+              </div>
+            </div>
+            <div
+              class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
+            >
+              <img class="rotate-flip" src="c.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">C</p>
               </div>
@@ -506,7 +597,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="c++.png" alt="cat" />
+              <img class="rotate-flip" src="c++.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">C++</p>
               </div>
@@ -514,7 +605,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1"
             >
-              <img src="figma.png" alt="cat" />
+              <img class="rotate-flip" src="figma.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">Figma</p>
               </div>
@@ -522,7 +613,7 @@
             <div
               class="smallCard sm:max-w-12 max-w-6 transition duration-300 hover:-translate-y-1 mb-10"
             >
-              <img src="github.png" alt="cat" />
+              <img class="rotate-flip" src="github.png" alt="cat" />
               <div class="smallCardDes">
                 <p class="text-center sm:text-sm text-[8px]">Github</p>
               </div>

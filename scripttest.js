@@ -64,3 +64,29 @@ function showNav() {
   const nav = document.getElementById("#hide");
   nav.style.display = "flex";
 }
+
+const sections = document.querySelectorAll("section[id]");
+
+const sideNavLinks = document.querySelectorAll("#side-nav a");
+const sideNav = document.getElementById("side-nav");
+const updateActiveLink = () => {
+  let index = sections.length;
+
+  while (--index && window.scrollY + 100 < sections[index].offsetTop) {}
+
+  // Update main navigation
+  navLinks.forEach((link) => link.classList.remove("active"));
+  if (navLinks[index]) {
+    navLinks[index].classList.add("active");
+  }
+
+  // Update side navigation
+  sideNavLinks.forEach((link) => link.classList.remove("active"));
+  if (sideNavLinks[index]) {
+    sideNavLinks[index].classList.add("active");
+  }
+};
+
+// Initial call and on scroll
+updateActiveLink();
+window.addEventListener("scroll", updateActiveLink);
